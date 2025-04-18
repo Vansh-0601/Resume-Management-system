@@ -43,7 +43,7 @@ GET /api/resumes/: Fetch all uploaded resumes.
 POST /api/resumes/: Upload a new resume.
 DELETE /api/resumes/{id}/: Delete a resume by its ID.
 
-Dependencies
+Dependencies-
 Backend (Django):
 Django
 Django REST Framework
