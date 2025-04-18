@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wastelink Resume Parser</title>
+</head>
+<body>
+    <h1>Wastelink Resume Parser</h1>
+    {% if user.is_authenticated %}
+      <p>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'upload_resume' %}">Upload Resume</a> |
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" style="background:none; border:none; color:blue; cursor:pointer;">Logout</button>
+        </form>
+      </p>
+    {% else %}
+      <p>
+        <a href="{% url 'login' %}">Login</a> |
+        <a href="{% url 'signup' %}">Signup</a>
+      </p>
+    {% endif %}
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Upload Resume</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="pdf" required>
+  <button type="submit">Upload</button>
+</form>
+
+<h3>Your Resumes</h3>
+<ul>
+  {% for r in resumes %}
+    <li>{{ r.name }} | {{ r.email }} | {{ r.phone }} | {{ r.skills }}</li>
+  {% empty %}
+    <li>No resumes uploaded yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

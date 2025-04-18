@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Upload Resume (Alternate Page)</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="pdf" required>
+  <button type="submit">Upload</button>
+</form>
+{% endblock %}

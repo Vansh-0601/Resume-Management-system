@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Admin View: All Uploaded Resumes</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Skills</th>
+      <th>PDF Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for resume in resumes %}
+      <tr>
+        <td>{{ resume.name }}</td>
+        <td>{{ resume.email }}</td>
+        <td>{{ resume.phone }}</td>
+        <td>{{ resume.skills }}</td>
+        <td>
+          {% if resume.resume_file %}
+            <a href="{{ resume.resume_file.url }}" target="_blank">Download</a>
+          {% else %}
+            No PDF
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
